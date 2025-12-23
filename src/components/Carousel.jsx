@@ -5,10 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import Category from "./Category.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
   const { productData, fetchAllProducts } = useContext(DataContext);
-
+  const navigate = useNavigate();
   // Data fetched from context
   // console.log(data);
 

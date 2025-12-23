@@ -23,7 +23,7 @@ const Contact = () => {
           {/* Form Section */}
           <form className="space-y-6">
             <div>
-              <label className="block text-white mb-1">Saurabh Pandey</label>
+              <label className="block text-white mb-1">Your name</label>
               <input type="text" placeholder="John Doe" className="w-full px-4 py-2 bg-white/20 border border-white/30 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
             <div>

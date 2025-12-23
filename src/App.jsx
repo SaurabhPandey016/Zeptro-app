@@ -9,6 +9,7 @@ import Contact from "./pages/Contact.jsx"
 import Navbar from "./components/Navbar.jsx"
 import Footer from "./components/Footer.jsx"
 import SingleProduct from "./pages/SingleProduct.jsx"
+import CategoryProduct from "./pages/CategoryProduct.jsx"
 
 function App() {
  
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products/>} />
           <Route path="/products/:id" element={<SingleProduct />} />
-          {/* <Route path="/category/:category" element={<Search />} />  */}
+          <Route path="/category/:category" element={<CategoryProduct />} /> 
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
