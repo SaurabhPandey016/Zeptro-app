@@ -7,26 +7,27 @@ import ProductListView from '../components/ProductListView'
 
 const CategoryProduct = () => {
   const prodId = useParams().category;
-  // console.log(prodId);
+
+  
   const [searchData, setSearchData] = useState([])
   const navigate = useNavigate();
   
-
+  
   useEffect(() => {
     const getFilteredData = async () => {
       
       try {
-        const res = await axios.get(`https://api.escuelajs.co/api/v1/categories/${prodId}/products`);
+        const res = await axios.get(`http://localhost:3000/products/category/${prodId}`);
         setSearchData(res.data || []);
       } catch (err) {
         console.error('failed to fetch category products', err);
         
       } 
     };
-
     getFilteredData();
   }, [prodId]);
 
+  console.log(searchData);
   return (
     <div>
       {

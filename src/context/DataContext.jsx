@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
     // Fetching all products from Fakestore api
     const fetchAllProducts = async ()=> {
         try {
-            const res = await axios.get("https://api.escuelajs.co/api/v1/products")
+            const res = await axios.get("http://localhost:3000/products")
             
             setProductData(res.data);
             // console.log(productData)
@@ -47,7 +47,6 @@ export const DataProvider = ({ children }) => {
     // // for getting only unique categories from the data
     const categoryOnlyData = getUniqueCategory(productData);
     const categoryOnlyId = getUniqueCategoryId(productData);
-
     return <DataContext.Provider value={{productData, setProductData, fetchAllProducts, categoryOnlyData, categoryOnlyId}}>
         {children}
     </DataContext.Provider>

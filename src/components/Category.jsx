@@ -23,8 +23,7 @@ const Category = () => {
                     const isAll = index === 0;
                     // console.log("this is isAll -> ", isAll);
                     const catId = !isAll ? categoryOnlyId?.[index - 1] : null;
-                    console.log("this -> category index - 1", categoryOnlyId?.[index - 1], "value of Index -> ", index)
-
+                    // console.log("this -> category index - 1", categoryOnlyId?.[index - 1], "value of Index -> ", index)
                     return (
                       <div key={index}>
                         <button onClick={()=> {

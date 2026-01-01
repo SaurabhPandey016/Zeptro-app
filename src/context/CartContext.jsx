@@ -9,12 +9,13 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
 
+    console.log(product);
     // If Item Already Exist or not
-    const itemInCart = cartItem.find((item) => item.id === product.id)
+    const itemInCart = cartItem.find((item) => item._id === product._id)
         if (itemInCart) {
             // Increase quantity if already in cart
             const updatedCart = cartItem.map((item) =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
             );
             setCartItem(updatedCart)
             toast.success("Product is added to cart!")
@@ -30,7 +31,8 @@ export const CartProvider = ({ children }) => {
     setCartItem( cartItem.map((item) => {
 
       // first check
-      if(item.id === productId) {
+      console.log(item._id,  " --> ", productId);
+      if(item._id === productId) {
         let newUnit = item.quantity;
 
         if(action === "decrease") {
@@ -49,7 +51,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const deleteItem = (productId) => {
-      setCartItem(cartItem.filter(item => item.id !== productId))
+      setCartItem(cartItem.filter(item => item._id !== productId))
       toast.success("Product is deleted from cart!")
   }
 

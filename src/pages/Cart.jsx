@@ -34,6 +34,7 @@ const Cart = () => {
 
               {
                 cartItem.map((item , index) => {
+                  console.log(cartItem);
                   return (
                     
                     // for Mapping
@@ -53,18 +54,18 @@ const Cart = () => {
                       {/* Now Buttons For Increment decrement */}
                       <div className='bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl'>
                         <button 
-                        onClick={() => updateQuantity(cartItem, item.id, "decrease")}
+                        onClick={() => updateQuantity(cartItem, item._id, "decrease")}
                         className='cursor-pointer'>
                           -
                         </button>
                         <span>{item.quantity}</span>
                         <button 
-                        onClick={() => updateQuantity(cartItem, item.id, "increase")}
+                        onClick={() => updateQuantity(cartItem, item._id, "increase")}
                         className='cursor-pointer'>
                           +
                         </button>
                       </div>
-                      <span onClick={() => deleteItem(item.id)} className='hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl'>
+                      <span onClick={() => deleteItem(item._id)} className='hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl'>
                         <FaRegTrashAlt className='text-red-500 text-2xl cursor-pointer' />
                       </span>
                     </div>
