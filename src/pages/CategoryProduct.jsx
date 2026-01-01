@@ -29,10 +29,10 @@ const CategoryProduct = () => {
 
   console.log(searchData);
   return (
-    <div>
+    <div className=''>
       {
         searchData.length > 0 ? (
-          <div className='max-w-6xl mx-auto mt-10 mb-10 px-4'>
+          <div className='max-w-6xl mx-auto mt-20 mb-10 px-4 mt-5'>
              <button onClick={()=>navigate('/')} className='bg-gray-800 mb-5 text-white px-3 py-1 rounded-md cursor-pointer flex gap-1 items-center'><ChevronLeft/> Back</button>
              {
               searchData.map((product, index) =>{
