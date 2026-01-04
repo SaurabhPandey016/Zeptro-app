@@ -13,7 +13,10 @@ const Cart = () => {
   const{cartItem, updateQuantity, deleteItem} = useCart();
   const navigate = useNavigate()
 
-  const totalPrice = cartItem.reduce((total , item) =>total + item.price, 0);
+  const totalPrice = cartItem.reduce(
+  (sum, item) => sum + item.price * item.quantity,
+  0
+);
 
   return (
 

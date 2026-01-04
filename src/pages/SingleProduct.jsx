@@ -8,14 +8,14 @@ import { IoCartOutline } from "react-icons/io5";
 import { useCart } from "../context/CartContext";
 
 const SingleProduct = () => {
-  const params = useParams();
+  const id = useParams().id;
   const [SingleProduct, setSingleProduct] = useState("");
   const{addToCart} = useCart();
 
   const getSingleProduct = async () => {
     try {
       const res = await axios.get(
-        `https://api.escuelajs.co/api/v1/products/${params.id}`
+        `http://localhost:3000/products/single/${id}`
       );
       const product = res.data;
       setSingleProduct(product);
@@ -28,6 +28,19 @@ const SingleProduct = () => {
   useEffect(() => {
     getSingleProduct();
   }, []);
+
+  // const addToWishlist = async () => {
+  //   await fetch("http://localhost:3000/favorites", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       productId: product.productId,
+  //       title: product.title,
+  //       price: product.price,
+  //       image: product.images[0],
+  //     }),
+  //   });
+  // };
 
    const discount = Math.ceil(Math.random() * (30 - 10) + 10);
 //    console.log(SingleProduct.name)
