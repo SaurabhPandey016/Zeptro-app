@@ -27,7 +27,7 @@ const CategoryProduct = () => {
     getFilteredData();
   }, [prodId]);
 
-  console.log(searchData);
+  // console.log(searchData);
   return (
     <div className=''>
       {

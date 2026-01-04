@@ -10,17 +10,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-  const{cartItem, updateQuantity, deleteItem} = useCart();
+  const{cartItem, increaseQty, decreaseQty, deleteItem} = useCart();
   const navigate = useNavigate()
 
   const totalPrice = cartItem.reduce(
-  (sum, item) => sum + item.price * item.quantity,
+  (sum, item) => sum + item.productId.price * item.quantity,
   0
 );
 
   return (
 
-    <div className='mt-10 max-w-6xl mx-auto mb-5 px-4 md:px-0' >
+    <div className='mt-20 max-w-6xl mx-auto mb-5 px-4 md:px-0' >
 
       {
         cartItem.length > 0
@@ -30,40 +30,40 @@ const Cart = () => {
           <div>
 
             {/* HEading For my Cart */}
-            <h1 className='font-bold text-2xl '>My Cart ({cartItem.length})</h1>
+            <h1 className='font-bold text-2xl'>My Cart ({cartItem.length})</h1>
 
             {/* Division For all the Items in Map */}
             <div className='mt-10'>
 
               {
                 cartItem.map((item , index) => {
-                  console.log(cartItem);
+                  console.log(cartItem)
                   return (
                     
                     // for Mapping
-                    <div key = {index} className='bg-gray-100 p-5 rounded-md flex items-center justify-between mt-3 w-full'>
+                    <div key = {item._id} className='bg-gray-100 p-5 rounded-md flex items-center justify-between mt-3 w-full'>
 
                       {/* Images and Detailed Section */}
                       <div className='flex items-center gap-4'>
-                        <img src={item.images[0]} alt='' className='w-20 h-20 rounded-md'/>
+                        <img src={item.productId.images[0]} alt='' className='w-20 h-20 rounded-md'/>
 
                         {/* // now div for details */}
                         <div>
-                          <h1 className='md:w-[300px] line-clamp-2 '>{item.title}</h1>
-                          <p className='text-red-500 font-semibold text-lg'>${item.price}</p>
+                          <h1 className='md:w-[300px] line-clamp-2 '>{item.productId.title}</h1>
+                          <p className='text-red-500 font-semibold text-lg'>${item.productId.price}</p>
                         </div>
                       </div>
 
                       {/* Now Buttons For Increment decrement */}
                       <div className='bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl'>
                         <button 
-                        onClick={() => updateQuantity(cartItem, item._id, "decrease")}
+                        onClick={() => decreaseQty(item._id)}
                         className='cursor-pointer'>
                           -
                         </button>
                         <span>{item.quantity}</span>
                         <button 
-                        onClick={() => updateQuantity(cartItem, item._id, "increase")}
+                        onClick={() => increaseQty(item._id)}
                         className='cursor-pointer'>
                           +
                         </button>
