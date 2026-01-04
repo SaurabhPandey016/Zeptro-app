@@ -3,6 +3,8 @@ import { NavLink, Link, useLocation } from 'react-router-dom'
 import { IoCartOutline, IoClose, IoMenu } from 'react-icons/io5'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 import { useCart } from '../context/CartContext'
+import { AiFillHeart } from 'react-icons/ai'
+import { useFavorites } from '../context/FavoriteContext'
 
 
 
@@ -11,6 +13,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false); // mobile menu
   const [scrolled, setScrolled] = useState(false); // add shadow when scrolled
   const location = useLocation();
+  const{ favorites } = useFavorites();
 
   // close mobile menu on navigation
   useEffect(() => {
@@ -47,6 +50,12 @@ const Navbar = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
+
+          <Link to="/favorites" className="relative">
+            <AiFillHeart className="w-6 h-6 text-red-600" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">{favorites?.length || 0}</span>
+          </Link>
+
           <Link to="/cart" className="relative">
             <IoCartOutline className="w-6 h-6 text-gray-800" />
             <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">{cartItem?.length || 0}</span>

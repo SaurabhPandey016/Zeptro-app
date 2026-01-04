@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { DataProvider } from "./context/DataContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import { ToastContainer } from "react-toastify";
+import { FavoriteProvider } from "./context/FavoriteContext.jsx";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <DataProvider>
       <CartProvider>
+        <FavoriteProvider>
         <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
           <App />
             <ToastContainer
@@ -33,6 +35,7 @@ createRoot(document.getElementById("root")).render(
             theme="light"
           />
         </ClerkProvider>
+        </FavoriteProvider>
       </CartProvider>
     </DataProvider>
   </StrictMode>

@@ -37,7 +37,7 @@ const Cart = () => {
 
               {
                 cartItem.map((item , index) => {
-                  console.log(cartItem)
+                  // console.log(cartItem)
                   return (
                     
                     // for Mapping

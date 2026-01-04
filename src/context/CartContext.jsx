@@ -21,21 +21,25 @@ export const CartProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ productId }),
     });
+    toast.success("Product is added to Cart!")
     fetchCart();
   };
 
   const increaseQty = async (id) => {
     await fetch(`${API}/increase/${id}`, { method: "PATCH" });
+    toast.success("Quantity increased!")
     fetchCart();
   };
 
   const decreaseQty = async (id) => {
     await fetch(`${API}/decrease/${id}`, { method: "PATCH" });
+    toast.success("Quantity Decreased!")
     fetchCart();
   };
 
   const deleteItem = async (id) => {
     await fetch(`${API}/${id}`, { method: "DELETE" });
+    toast.success("Product is deleted from Cart!")
     fetchCart();
   };
 
