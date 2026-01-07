@@ -45,9 +45,16 @@ This project is designed to reflect **industry-ready frontend practices** suitab
 | **Context API** | Global State Management |
 | **React Router** | Routing |
 | **Vite** | Fast Build Tool |
-| **CSS** | Styling |
+| **Tailwind CSS** | Styling |
 
 ---
+## How to run locally ✅
+
+git clone https://github.com/SaurabhPandey016/Zeptro-app.git
+cd Zeptro-app
+npm install
+npm run dev
+
 
 ## 📂 Project Structure
 
@@ -78,4 +85,10 @@ src/
 ├── App.jsx
 ├── main.jsx
 └── index.css
+```
+## 👨‍💻 Author
 
+Saurabh Pandey
+Frontend Developer | React Enthusiast |
+
+📌 This project is part of my professional portfolio and interview preparation.
