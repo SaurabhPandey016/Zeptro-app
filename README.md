@@ -50,7 +50,7 @@ This project is designed to reflect **industry-level skills** expected by modern
 | **Vite** | Fast Build Tool |
 | **Context API** | Global State Management |
 | **React Router** | Client-side Routing |
-| **CSS** | Styling |
+| **TailwindCSS** | Styling |
 
 ---
 
